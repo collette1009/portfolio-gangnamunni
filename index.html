@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오희은 | 서비스 운영 매니저 — 힐링페이퍼(강남언니) 지원</title>
+  <meta name="description" content="플랫폼 운영 정책 설계, B2B 파트너 운영, VOC 기반 서비스 개선 경험. 강남언니 실사용자이기도 합니다.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:        #FFFFFF;
+      --bg-soft:      #F7F7F8;
+      --bg-card:      #F3F3F4;
+      --border:       #E5E5E6;
+      --border-hover: #282D32;
+      --text-1:       #141416;
+      --text-2:       #50505A;
+      --text-3:       #909098;
+      --charcoal:     #282D32;
+      --charcoal-2:   #1A1E21;
+      --charcoal-a:   rgba(40,45,50,0.07);
+      --accent:       #E8547A;
+      --accent-soft:  #FDF0F3;
+      --accent-a:     rgba(232,84,122,0.10);
+      --sh-sm:        0 1px 4px rgba(0,0,0,0.06);
+      --sh-md:        0 4px 20px rgba(0,0,0,0.09);
+      --sh-lg:        0 12px 40px rgba(0,0,0,0.12);
+      --r:            10px;
+      --r-sm:         6px;
+      --ease:         cubic-bezier(.4,0,.2,1);
+      --t:            0.22s;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-1); background: var(--white);
+      -webkit-font-smoothing: antialiased; line-height: 1.7;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+    .hr { width: 100%; height: 1px; background: var(--border); }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--t) var(--ease);
+    }
+    header.on { border-bottom-color: var(--border); }
+    .h-inner {
+      max-width: 980px; margin: 0 auto; padding: 0 28px;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 16px; font-weight: 800; color: var(--charcoal); text-decoration: none; letter-spacing: -0.02em; }
+    nav { display: flex; gap: 30px; }
+    nav a { font-size: 14px; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color var(--t); }
+    nav a:hover { color: var(--charcoal); }
+    .nav-toggle { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: transform var(--t) var(--ease), opacity var(--t); }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 800px) {
+      .nav-toggle { display: flex; }
+      nav { display: none; position: absolute; top: 62px; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); flex-direction: column; gap: 0; border-bottom: 1px solid var(--border); padding: 8px 0; }
+      nav.open { display: flex; }
+      nav a { padding: 14px 28px; font-size: 15px; }
+      nav a:hover { background: var(--bg-soft); }
+    }
+
+    /* HERO */
+    .hero {
+      padding: 96px 0 80px; position: relative; overflow: hidden;
+      background-image: radial-gradient(circle, rgba(40,45,50,0.18) 1.5px, transparent 1px);
+      background-size: 28px 28px; background-position: 14px 14px;
+    }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 24px; }
+    .hero-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--charcoal); }
+    .hero-name { font-size: clamp(52px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; color: var(--charcoal); line-height: 1.0; margin-bottom: 10px; }
+    .hero-role { font-size: clamp(17px, 2.2vw, 20px); font-weight: 500; color: var(--text-2); letter-spacing: -0.01em; margin-bottom: 36px; }
+    .hero-tagline { position: relative; padding: 0 0 0 22px; margin-bottom: 48px; max-width: 540px; }
+    .hero-tagline::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 2px; background: var(--charcoal); }
+    .hero-tagline p { font-size: clamp(15px, 1.8vw, 17px); color: var(--text-1); line-height: 1.85; }
+    .hero-tagline strong { font-weight: 600; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--accent-soft); border: 1px solid var(--accent-a); border-radius: 20px; padding: 5px 13px; font-size: 12.5px; font-weight: 600; color: var(--accent); margin-top: 14px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 14px; font-weight: 600; border-radius: var(--r-sm); text-decoration: none; letter-spacing: -0.01em; transition: all var(--t) var(--ease); }
+    .btn svg { flex-shrink: 0; }
+    .btn-dark { background: var(--charcoal); color: var(--white); border: 1.5px solid var(--charcoal); }
+    .btn-dark:hover { background: var(--charcoal-2); border-color: var(--charcoal-2); transform: translateY(-1px); box-shadow: var(--sh-md); }
+    .btn-outline { background: transparent; color: var(--charcoal); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--charcoal); background: var(--bg-card); transform: translateY(-1px); }
+
+    /* SECTION COMMON */
+    .sec { padding: 76px 0; }
+    .sec-alt { background: var(--bg-soft); }
+    .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
+    .sec-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -0.025em; color: var(--charcoal); line-height: 1.3; margin-bottom: 40px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
+    .about-text { font-size: 16px; color: var(--text-2); line-height: 1.9; }
+    .about-text strong { color: var(--text-1); font-weight: 600; }
+    .about-text p + p { margin-top: 18px; }
+    .about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .chip { font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 100px; background: var(--charcoal-a); color: var(--charcoal); letter-spacing: 0.01em; }
+    .about-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .sidebar-card { padding: 20px 22px; background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); }
+    .sidebar-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .sidebar-icon { width: 30px; height: 30px; border-radius: var(--r-sm); background: var(--charcoal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sidebar-icon.accent { background: var(--charcoal); }
+    .sidebar-card-label { font-size: 13px; font-weight: 700; color: var(--text-1); }
+    .sidebar-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* CASES */
+    .cases-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .c-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
+    .c-card:hover { box-shadow: var(--sh-md); transform: translateY(-3px); border-color: var(--charcoal); }
+    .c-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .c-tag { font-size: 11px; font-weight: 600; color: var(--charcoal); background: var(--charcoal-a); padding: 4px 10px; border-radius: 100px; }
+    .c-title { font-size: 17px; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; line-height: 1.45; }
+    .c-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; flex: 1; }
+    .c-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); margin-top: auto; }
+    .c-metric { display: flex; flex-direction: column; gap: 2px; }
+    .c-metric-val { display: inline-block; font-size: 18px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; background: var(--charcoal-a); padding: 2px 10px; border-radius: 6px; }
+    .c-metric-lab { font-size: 11px; color: var(--text-3); }
+    .c-arrow { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--charcoal); flex-shrink: 0; transition: background var(--t), border-color var(--t), transform var(--t); }
+    .c-card:hover .c-arrow { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); transform: translateX(3px); }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .sk-group { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
+    .sk-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .sk-list { display: flex; flex-direction: column; gap: 9px; }
+    .sk-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-2); }
+    .sk-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; }
+
+    /* FOOTER */
+    footer { padding: 60px 0; border-top: 1px solid var(--border); }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-name { font-size: 22px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .footer-sub { font-size: 14px; color: var(--text-3); }
+
+    /* FADE IN */
+    .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
+    .fi.show { opacity: 1; transform: none; }
+    .fi:nth-child(2) { transition-delay: 0.08s; }
+    .fi:nth-child(3) { transition-delay: 0.16s; }
+    .fi:nth-child(4) { transition-delay: 0.24s; }
+
+    @media (max-width: 800px) {
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 500px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; }
+      .btn { justify-content: center; }
+      .sec { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hd">
+  <div class="h-inner">
+    <a href="#" class="logo">오희은</a>
+    <nav id="nav">
+      <a href="#about">소개</a>
+      <a href="#cases">케이스 스터디</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Service Operations Manager · Platform
+    </div>
+    <h1 class="hero-name">오희은</h1>
+    <p class="hero-role">힐링페이퍼(강남언니) · [플랫폼 사업] 서비스 운영 매니저 지원</p>
+    <div class="hero-tagline">
+      <p>
+        플랫폼이 파트너와 사용자 모두에게 신뢰받으려면, 운영 기준이 먼저 있어야 합니다.<br>
+        <strong>B2B 파트너 400곳의 운영 체계를 설계하고, VOC를 서비스 구조로 바꿔온 것이 제가 해온 일입니다.</strong><br>
+        <span style="font-size:15px; color:var(--text-3);">파트너 운영 · 플랫폼 정책 설계 · VOC 분석 · 경영진 보고</span>
+      </p>
+      <div class="hero-badge">
+        📱 강남언니 실사용자 — 2025년 12월 얼굴 지방이식, 앱으로 병원 비교·예약·리뷰 작성
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#cases" class="btn btn-dark">
+        케이스 스터디 보기
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <p class="sec-eyebrow">About</p>
+    <h2 class="sec-title">사용자의 언어를 운영 정책으로 번역하는 사람</h2>
+    <div class="about-grid">
+      <div>
+        <div class="about-text fi">
+          <p>
+            <strong>저는 강남언니의 실제 사용자이기도 합니다.</strong>
+            2025년 12월, 얼굴 지방이식을 결정하면서 강남언니 앱으로 병원 수십 곳을 비교하고, 상담 예약을 잡고, 시술 후 리뷰를 직접 올렸습니다. 그리고 그날, 병원 대기실에서 전체 환자의 30% 가까이가 외국인이었습니다. 그 자리에서 강남언니가 말하는 '글로벌 미용의료 플랫폼의 표준'이 이미 어떤 현실인지 눈으로 확인했습니다.
+          </p>
+          <p>
+            서비스 운영 매니저는 사용자의 언어를 운영 정책으로 번역하는 사람입니다.
+            카카오VX에서 골프장 400여 곳 파트너의 운영 기준을 재정비했고, 초록마을에서는 VOC 173건을 전수 분류해 서비스 구조를 직접 바꿨습니다.
+            <strong>아무도 시키지 않은 구조의 빈틈을 먼저 발견하는 것, 그것이 제 일하는 방식입니다.</strong>
+          </p>
+          <p>
+            강남언니의 핵심 가치 '극도의 투명함'은 제가 일하는 방식과 같습니다.
+            느낌이 아니라 숫자로 문제를 정의하고, 그 근거를 경영진과 개발팀 앞에 직접 내놓는 방식으로 일해왔습니다.
+          </p>
+        </div>
+        <div class="about-chips fi">
+          <span class="chip">플랫폼 운영 정책 설계</span>
+          <span class="chip">B2B 파트너 운영 · 관리</span>
+          <span class="chip">VOC 분석 · 서비스 개선</span>
+          <span class="chip">유관부서 협업 · C레벨 보고</span>
+          <span class="chip">AI 실무 활용</span>
+          <span class="chip">운영 자동화</span>
+        </div>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-card fi">
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon accent">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C4.24 2 2 4.24 2 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" stroke="white" stroke-width="1.4"/><path d="M5 7.5L6.5 9L9 5.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="sidebar-card-label">사용자·글로벌 양쪽 시각</span>
+          </div>
+          <p class="sidebar-card-desc">강남언니 앱 실사용 경험, 병원에서 목격한 외국인 환자 30%, 호텔신라 외국인 VIP 영어 응대 경력. 소비자 언어와 글로벌 서비스 감각을 함께 가지고 있습니다.</p>
+        </div>
+        <div class="sidebar-card fi">
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M5 7h4M7 5v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <span class="sidebar-card-label">기준이 없으면 직접 만들기</span>
+          </div>
+          <p class="sidebar-card-desc">규정 체계, 판단 가이드, 파트너 정책, 운영 기준이 없는 곳에서도 기다리지 않습니다. 먼저 발견하고, 만들고, 경영진 승인까지 이어냅니다.</p>
+        </div>
+        <div class="sidebar-card fi">
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10L5 7L7.5 9.5L10 6L12 8" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="sidebar-card-label">데이터로 말하는 방식</span>
+          </div>
+          <p class="sidebar-card-desc">VOC 173건 전수 분류, 배상회수율 14.7배, 문의 0건. 설득의 단위는 항상 숫자입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- CASES -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <p class="sec-eyebrow">Case Study</p>
+    <h2 class="sec-title">실제로 해결한 문제들</h2>
+    <div class="cases-grid">
+
+      <a class="c-card fi" href="case1.html">
+        <div class="c-tags">
+          <span class="c-tag">VOC 분석</span>
+          <span class="c-tag">서비스 기획</span>
+          <span class="c-tag">유관부서 협업</span>
+        </div>
+        <h3 class="c-title">VOC 전수 분석 → 서비스 구조 개선 → 반복 문의 완전 해소</h3>
+        <p class="c-desc">누적 VOC를 직접 전수 분류해 구조적 원인을 데이터로 확인하고, CTO·이커머스 리드와 협의해 Fail-soft UX 및 입력 구조를 직접 설계해 개발 반영까지 이어냈습니다.</p>
+        <div class="c-bottom">
+          <div class="c-metric">
+            <span class="c-metric-val">일 6~10건 → 0건</span>
+            <span class="c-metric-lab">반복 문의 완전 해소</span>
+          </div>
+          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <a class="c-card fi" href="case2.html">
+        <div class="c-tags">
+          <span class="c-tag">B2B 파트너 운영</span>
+          <span class="c-tag">운영 정책 설계</span>
+          <span class="c-tag">데이터 기준화</span>
+        </div>
+        <h3 class="c-title">B2B 파트너 400곳 운영 체계 구축 · 판단 기준 재정비</h3>
+        <p class="c-desc">카카오VX에서 골프장 400여 곳 파트너의 어드민 데이터를 기준화하고, VOC 분석 기반으로 운영 가이드를 전면 재정비해 파트너 문의 반복률을 낮추고 운영 기준을 통일했습니다.</p>
+        <div class="c-bottom">
+          <div class="c-metric">
+            <span class="c-metric-val">400+ 파트너</span>
+            <span class="c-metric-lab">운영 체계 구축</span>
+          </div>
+          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <a class="c-card fi" href="case3.html">
+        <div class="c-tags">
+          <span class="c-tag">파트너 협상</span>
+          <span class="c-tag">계약 분석</span>
+          <span class="c-tag">운영 구조 설계</span>
+        </div>
+        <h3 class="c-title">외부 파트너 계약 기반 정산 구조 재정의 · 배상·선공제 체계 수립</h3>
+        <p class="c-desc">택배·물류 파트너의 약관·계약서를 AI로 직접 분석해 협상 근거를 확보하고, 귀책 기준과 정산 선공제 구조를 처음부터 설계해 손실 통제 주도권을 확보했습니다.</p>
+        <div class="c-bottom">
+          <div class="c-metric">
+            <span class="c-metric-val">배상회수율 14.7배</span>
+            <span class="c-metric-lab">월 1,900만 선공제 구조 확보</span>
+          </div>
+          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <a class="c-card fi" href="case4.html">
+        <div class="c-tags">
+          <span class="c-tag">운영 정책 설계</span>
+          <span class="c-tag">C레벨 협의</span>
+          <span class="c-tag">선제적 제안</span>
+        </div>
+        <h3 class="c-title">운영 기준 직접 설계 · COO·CEO 보고 후 전사 확정</h3>
+        <p class="c-desc">위기 상황에서 판단 기준이 없을 때 직접 설계하고 C레벨에 보고해 전사 기준으로 확정한 두 가지 사례. COO 보고로 배송 SLA 기준 확정, CEO 제안으로 일일 자금집행 리포트 자동화 정식 운영.</p>
+        <div class="c-bottom">
+          <div class="c-metric">
+            <span class="c-metric-val">COO·CEO 보고 전사 확정</span>
+            <span class="c-metric-lab">기준 없는 위기 상황에서 직접 설계</span>
+          </div>
+          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="hr"></div></div>
+
+<!-- SKILLS -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <p class="sec-eyebrow">Skills &amp; Tools</p>
+    <h2 class="sec-title">역량 및 도구</h2>
+    <div class="skills-grid">
+      <div class="sk-group fi">
+        <div class="sk-title">운영 · 기획</div>
+        <div class="sk-list">
+          <div class="sk-item">플랫폼 운영 정책 기획·관리</div>
+          <div class="sk-item">B2B 파트너 운영·관리</div>
+          <div class="sk-item">VOC 분석·서비스 구조 개선</div>
+          <div class="sk-item">Fail-soft UX 설계</div>
+          <div class="sk-item">운영 기준·예외 처리 구조 설계</div>
+          <div class="sk-item">파트너 협상·계약 분석</div>
+        </div>
+      </div>
+      <div class="sk-group fi">
+        <div class="sk-title">협업 · 보고</div>
+        <div class="sk-list">
+          <div class="sk-item">유관부서 협의 및 스펙 합의</div>
+          <div class="sk-item">C레벨(COO·CEO) 직접 보고</div>
+          <div class="sk-item">이슈 구조화·에스컬레이션 방지</div>
+          <div class="sk-item">팀 온보딩·운영 기준 문서화</div>
+        </div>
+      </div>
+      <div class="sk-group fi">
+        <div class="sk-title">AI · 자동화</div>
+        <div class="sk-list">
+          <div class="sk-item">Claude (계약서 분석·자동화 구현)</div>
+          <div class="sk-item">Gemini·NotebookLM (교차 검증)</div>
+          <div class="sk-item">Chrome Extension (직접 구현)</div>
+          <div class="sk-item">Google Sheets·Apps Script</div>
+          <div class="sk-item">Zapier·Slack 연동</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-name">오희은</div>
+        <div class="footer-sub">힐링페이퍼(강남언니) · [플랫폼 사업] 서비스 운영 매니저 지원</div>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <span style="font-size:14px; color:var(--text-2);">gldms1009@naver.com</span>
+        <span style="font-size:14px; color:var(--text-2);">010-2357-2674</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hd = document.getElementById('hd');
+  window.addEventListener('scroll', () => { hd.classList.toggle('on', window.scrollY > 8); }, { passive: true });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  const navToggle = document.getElementById('navToggle');
+  const navEl = document.getElementById('nav');
+  navToggle.addEventListener('click', () => { navToggle.classList.toggle('open'); navEl.classList.toggle('open'); });
+  document.querySelectorAll('nav a, .btn[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href.startsWith('#')) { e.preventDefault(); const t = document.querySelector(href); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); navToggle.classList.remove('open'); navEl.classList.remove('open'); }
+    });
+  });
+</script>
+</body>
+</html>
